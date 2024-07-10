@@ -1,0 +1,124 @@
+/* Css Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* navigation Bar */
+#navbar {
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0px;
+    width: 100%;
+}
+
+#navbar::before {
+    content: "";
+    background-color: black;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.55;
+}
+
+/* Navigation Bar: title name */
+#titleName {
+    margin: 10px 24px;
+    color: whitesmoke;
+}
+
+#titleName h2 {
+    height: 69px;
+    margin: 20px 0px 5px 0px;
+    font-family: 'Baloo Bhai', cursive;
+}
+
+/* Navigation Bar: List Styling */
+#navbar ul {
+    display: flex;
+    font-family: 'Baloo Bhai', cursive;
+}
+
+#navbar ul li {
+    margin: 10px 0px 5px 15px;
+    padding-right: 0px;
+    margin-right: 0px;
+    list-style: none;
+    font-size: 1.3rem;
+}
+
+#navbar ul li a{
+    color: chocolate;
+    display: block;
+    padding: 3px 22px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+#navbar ul li a:hover{
+    color: black;
+    background-color: white;
+}
+
+/* organizer profile content style */
+.main-content {
+    margin-top: 40px;
+    margin-bottom: 100px;
+    margin-left: 800px;
+    margin-left: 250px;
+    padding: 20px;
+    width: calc(100% - 250px);
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.main-content h1{
+    color: blue;
+
+}
+
+#profileInfo p {
+    margin: 10px 0;
+}
+
+#profileInfo span {
+    font-weight: bold;
+}
+
+
+
+/* footer section */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background-color: black;
+    color: white;
+    font-family: 'Baloo Bhai', cursive;
+    font-size: 1rem;
+    position: relative;
+    z-index: 1;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0;
+}

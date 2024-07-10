@@ -1,0 +1,89 @@
+/* sign_upStyle.css */
+/* Css signup for both org and user*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* for Sign up form */
+form {
+    position: relative;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+    width: 600px;
+    margin: 50px auto;
+}
+
+h1 {
+    text-align: center;
+    color: blue;
+    font-family: Arial, sans-serif;
+    margin-bottom: 25px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: red;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+label {
+    font-size: 18px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+select {
+    width: calc(100% - 40px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* footer section */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background-color: black;
+    color: white;
+    font-family: 'Baloo Bhai', cursive;
+    font-size: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+footer p {
+    margin: 0;
+}
