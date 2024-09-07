@@ -1,4 +1,3 @@
-<!-- event_Odetail.php -->
 <?php
 session_start(); // Start the session
 
@@ -43,6 +42,9 @@ if (isset($_GET['event_id'])) {
     echo "<script>alert('Invalid request.'); window.location.href='organizer_dashboard.php';</script>";
     exit();
 }
+
+// Determine the section from the URL
+$section = isset($_GET['section']) ? $_GET['section'] : '';
 ?>
 
 <!DOCTYPE html>
@@ -55,28 +57,49 @@ if (isset($_GET['event_id'])) {
 </head>
 <body>
 <nav>
-        <div class="navbar">
-          <div class="logo"><a href="#">Details</a></div>
-          
-        </div>
-      </nav>
+    <div class="navbar">
+        <div class="logo"><a href="#">Details</a></div>
+    </div>
+</nav>
 
-    <div class="event-details">
-        <div class="event-info">
-            
-            <div class="main-contain">
-                <p><strong>Event Name:</strong> <?php echo htmlspecialchars($event['eventName']); ?></p>
-                <p><strong>Event Category:</strong> <?php echo htmlspecialchars($event['eventCategory']); ?></p>
-                <p><strong>Date:</strong> <?php echo htmlspecialchars($event['date']); ?></p>
-                <p><strong>Time:</strong> <?php echo htmlspecialchars($event['time']); ?></p>
-                <p><strong>Location:</strong> <?php echo htmlspecialchars($event['location']); ?></p>
-                <p><strong>Number of Participants:</strong> <?php echo htmlspecialchars($event['noOfparticipants']); ?></p>
-                <p><strong>Organizer Name:</strong> <?php echo htmlspecialchars($event['organizer']); ?></p>
-                <p><strong>Sub Organizer:</strong> <?php echo htmlspecialchars($event['suborganizer']); ?></p>
-                <p><strong>Event Detail:</strong> <?php echo htmlspecialchars($event['eventDetails']); ?></p>
-            </div>
+<div class="event-details">
+    <div class="event-info">
+        <div class="main-contain">
+            <p><strong>Event Name:</strong> <?php echo htmlspecialchars($event['eventName']); ?></p>
+            <p><strong>Event Category:</strong> <?php echo htmlspecialchars($event['eventCategory']); ?></p>
+            <p><strong>Date:</strong> <?php echo htmlspecialchars($event['date']); ?></p>
+            <p><strong>Time:</strong> <?php echo htmlspecialchars($event['time']); ?></p>
+            <p><strong>Location:</strong> <?php echo htmlspecialchars($event['location']); ?></p>
+            <p><strong>Number of Participants:</strong> <?php echo htmlspecialchars($event['noOfparticipants']); ?></p>
+            <p><strong>Organizer Name:</strong> <?php echo htmlspecialchars($event['organizer']); ?></p>
+            <p><strong>Sub Organizer:</strong> <?php echo htmlspecialchars($event['suborganizer']); ?></p>
+            <p><strong>Event Detail:</strong> <?php echo htmlspecialchars($event['eventDetails']); ?></p>
         </div>
     </div>
 
+    <?php
+    // Include list of registered students if in registered section
+    if ($section === 'registered') {
+        $query_registered_students = "
+            SELECT studentName 
+            FROM enrolled_events 
+            WHERE eventId = '$event_id'
+        ";
+        $result_registered_students = $conn->query($query_registered_students);
+
+        // Display list of registered students
+        if ($result_registered_students->num_rows > 0) {
+            echo "<h3>Registered Students:</h3>";
+            echo "<ul>";
+            while ($student = $result_registered_students->fetch_assoc()) {
+                echo "<li>" . htmlspecialchars($student['studentName']) . "</li>";
+            }
+            echo "</ul>";
+        } else {
+            echo "<p>No students registered for this event.</p>";
+        }
+    }
+    ?>
+</div>
 </body>
 </html>

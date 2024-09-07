@@ -1,4 +1,4 @@
-<!-- create_event.html -->
+<!-- create_event.php -->
 <?php
 session_start(); // Start the session
 
@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       </nav>
 
     <div class="create-event">
-        <form action="create_event.php" method="post">
+        <form action="create_event.php" method="post" onsubmit="return validateDateTime()">
             <h1>Create Event</h1>
             <label for="name">Event Name:</label><br>
             <input type="text" id="name" name="name" placeholder="Enter your Event Name" required><br>
@@ -106,6 +106,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
     </div>
 
+    <script>
+        function validateDateTime() {
+            // Get current date and time
+            var currentDate = new Date();
+            var selectedDate = new Date(document.getElementById('date').value + 'T' + document.getElementById('time').value);
+
+            // Check if the selected date and time are in the future
+            if (selectedDate <= currentDate) {
+                alert("Please select a future date and time for the event.");
+                return false; // Prevent form submission
+            }
+            return true; // Allow form submission
+        }
+    </script>
 </body>
 </html>
-

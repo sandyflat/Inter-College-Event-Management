@@ -14,10 +14,12 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('password').innerText = profileData.password;
 });
 
-function resetPassword() {
-    alert('Password reset link has been sent to your email.');
-    // Implement the logic to send a password reset link to the organizer's email
-}
+// function resetPassword() {
+//    // alert('Password reset link has been sent to your email.');
+//    document.getElementById('resetPasswordBtn').addEventListener('click', function () {
+//     window.location.href = 'reset_orgpassword.php';
+// });
+// }
 
 function logout() {
     // Implement the logic to log out the user
