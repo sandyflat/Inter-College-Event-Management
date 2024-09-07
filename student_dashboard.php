@@ -188,7 +188,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancel_event_id'])) {
                     }
 
                     echo "<td>
-                        <form method='POST' action=''>
+                        <form method='POST' action='student_dashboard.php' onsubmit ='return confirmDelete()'>
                             <input type='hidden' name='cancel_event_id' value='" . htmlspecialchars($event['eventId']) . "'>
                             <input type='submit' value='Cancel' class='button'>
                         </form>
@@ -202,6 +202,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancel_event_id'])) {
         </tbody>
     </table>
 </div>
+<script>
+        function confirmDelete() {
+            return confirm('Are you sure you want to cancel this event?');
+        }
+    </script>
 
 <script src="js/organizer_profile.js"></script>
 </body>
