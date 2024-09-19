@@ -83,9 +83,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancel_event_id'])) {
 <div class="main-content1">
     <div id="profileInfo">
         <p style="font-size: 20px;"><strong>Name:</strong> <?php echo htmlspecialchars($student_name); ?></p>
-        
-        <p style="font-size: 20px;"><strong>Password:</strong> <?php echo htmlspecialchars($student_password); ?></p>
-        
         <button onclick="logout()" class="button">Logout</button>
     </div>
 </div>
