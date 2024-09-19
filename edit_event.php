@@ -67,7 +67,7 @@ if (isset($_GET['event_id'])) {
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            background-color: #6610f2; /* Semi-transparent background */
             justify-content: center;
             align-items: center;
         }
