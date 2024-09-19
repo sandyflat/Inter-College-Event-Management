@@ -58,10 +58,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_event_id'])) {
     
     <div class="main-content1">
         <div id="profileInfo">
-            <p><strong>Organizer Name:</strong> <?php echo htmlspecialchars($organizer_name); ?></p>
-            <p><strong>Email:</strong> <?php echo htmlspecialchars($organizer_email); ?></p>
-            <p><strong>Password:</strong> <?php echo htmlspecialchars($organizer_password); ?></p>
-            <button onclick="resetPassword()" class="button">Reset Password</button><br>
+            <p style="font-size: 20px;"><strong>Organizer Name:</strong> <?php echo htmlspecialchars($organizer_name); ?></p>
+            
+            <p style="font-size: 20px;"><strong>Password:</strong> <?php echo htmlspecialchars($organizer_password); ?></p>
+           
             <button onclick="logout()" class="button">Logout</button>
         </div>
     </div>
