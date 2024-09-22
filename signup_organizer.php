@@ -92,6 +92,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <option value="National College of Information Technology">NCIT</option>
                 <option value="Cosmos Engineering College">Cosmos Engineering College</option>
                 <option value="Nepal Engineering College">Nepal Engineering College</option>
+                <option value="Universal Engineering College">Universal Engineering College</option>
+
             </select><br><br>
 
             <label for="email">Email:</label><br>

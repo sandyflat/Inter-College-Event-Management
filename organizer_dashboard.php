@@ -131,6 +131,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_event_id'])) {
                     <th>Remaining Days</th>
                     <th>Time</th>
                     <th>Location</th>
+                    <th>Organizer</th>
                     <th>Sub Organizer</th>
                     <th>No of Participants</th>
                     <th>Action</th>
@@ -160,6 +161,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_event_id'])) {
 
                         echo "<td>" . htmlspecialchars($event['time']) . "</td>";
                         echo "<td>" . htmlspecialchars($event['location']) . "</td>";
+                        echo "<td>" . htmlspecialchars($event['organizer']) . "</td>";
                         echo "<td>" . htmlspecialchars($event['suborganizer']) . "</td>";
                         echo "<td>" . htmlspecialchars($event['noOfparticipants']) . "</td>";
                         echo "<td><a href='event_Odetail.php?event_id=" . urlencode($event['eventId']) . "&section=registered'>Details</a></td>";

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 19, 2024 at 07:02 PM
+-- Generation Time: Sep 22, 2024 at 05:36 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -39,10 +39,10 @@ CREATE TABLE `collegereg` (
 --
 
 INSERT INTO `collegereg` (`id`, `collegename`, `password`, `email`) VALUES
-(1, 'Everest Engineering College', 'admin', 'example@gmail.com'),
+(1, 'Everest Engineering College', 'everest123', 'example@gmail.com'),
 (3, 'Cosmos Engineering College', 'cosmos123', 'cosmos@gmail.com'),
 (6, 'Nepal Engineering College', 'nepal123', 'nepalcollege@gmail.com'),
-(8, 'National College of Information Technology', 'testing', 'nationalcollege@gmail.com');
+(8, 'National College of Information Technology', 'ncit123', 'nationalcollege@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -64,7 +64,9 @@ INSERT INTO `enrolled_events` (`eventId`, `studentName`) VALUES
 ('2', 'Mohan Bahadur Saud'),
 ('3', 'Mohan Bahadur Saud'),
 ('5', 'Mohan Bahadur Saud'),
-('6', 'Mohan Bahadur Saud');
+('6', 'Mohan Bahadur Saud'),
+('8', 'Mohan Bahadur Saud'),
+('2', 'Sandip Chapain');
 
 -- --------------------------------------------------------
 
@@ -90,12 +92,12 @@ CREATE TABLE `event_details` (
 --
 
 INSERT INTO `event_details` (`eventId`, `eventName`, `eventCategory`, `eventDetails`, `date`, `time`, `location`, `organizer`, `suborganizer`, `noOfparticipants`) VALUES
-(2, 'tech fest', 'Technical Events', 'coding competitjon', '2024-09-25', '08:44', 'Sanepa', 'Everest Engineering College', 'sandy', 1),
+(2, 'tech fest', 'Technical Events', 'coding competitjon', '2024-09-25', '08:44', 'Sanepa', 'Everest Engineering College', 'sandy', 2),
 (4, 'just testing hai ta', 'Professional Development Events', 'yettikai test garna lai ho\r\n', '2024-09-30', '07:56', 'Sanepa', 'Everest Engineering College', 'koi xaina', 0),
 (5, 'python bootcamp', 'Workshops', 'bring your own laptop and charger', '2024-09-25', '07:54', 'UN park', 'Everest Engineering College', 'abc company', 1),
 (6, 'MERN bootcamp', 'Workshops', '3 days bootcamp for mern stack along with git and github', '2024-09-18', '07:20', 'putalisadak', 'National College of Information Technology', 'random company', 1),
 (7, 'college meetup', 'Workshops', 'just meetup and chiya guff gaff', '2024-09-21', '09:34', 'Sankamul', 'Everest Engineering College', 'abc corporation', 0),
-(8, 'college meetup', 'Cultural', 'dont come', '2024-09-24', '10:59', 'Sankamul', 'National College of Information Technology', 'abc corporation', 0);
+(8, 'college meetup', 'Cultural', 'dont come', '2024-09-24', '10:59', 'Sankamul', 'National College of Information Technology', 'abc corporation', 1);
 
 -- --------------------------------------------------------
 
@@ -117,8 +119,9 @@ CREATE TABLE `studentreg` (
 
 INSERT INTO `studentreg` (`id`, `name`, `password`, `email`, `registration_id`) VALUES
 (8, 'Mohan Bahadur Saud', 'mohan123', 'mohan@gmail.com', '2021-1-12-0111'),
-(11, 'Pritam Shrestha', 'pritam@123', 'pritamshrestha@gmail.com', '2021-1-12-0130'),
-(12, 'Sandip Chapain', 'sandip123', 'sandipchapain@gmail.com', '2021-1-12-0137');
+(11, 'Pritam Shrestha', 'pritam123', 'pritamshrestha@gmail.com', '2021-1-12-0130'),
+(12, 'Sandip Chapain', 'sandip123', 'sandipchapain@gmail.com', '2021-1-12-0137'),
+(13, 'Sandesh Dani', 'sandesh123', 'dannydalle@gmail.com', '2021-1-12-0135');
 
 -- --------------------------------------------------------
 
@@ -139,8 +142,9 @@ CREATE TABLE `uniorg` (
 INSERT INTO `uniorg` (`regid`, `collegename`, `passkey`) VALUES
 ('2001-1-12', 'Everest Engineering College', 'everest123'),
 ('2005-1-20', 'National College of Information Technology', 'ncit123'),
-('2015-2-25', 'Cosmos Engineering College', 'cosmos123'),
-('2010-5-15', 'Nepal Engineering College', 'nec123');
+('2008-04-23', 'Universal Engineering College', 'universal123'),
+('2010-5-15', 'Nepal Engineering College', 'nec123'),
+('2015-2-25', 'Cosmos Engineering College', 'cosmos123');
 
 -- --------------------------------------------------------
 
@@ -160,10 +164,11 @@ CREATE TABLE `unistud` (
 --
 
 INSERT INTO `unistud` (`regid`, `student_name`, `college_name`, `passkey`) VALUES
+('2020-3-11-0134', 'Sanskar Neupane', 'Everest Engineering College', 'sanskar123'),
 ('2021-1-12-0111', 'Mohan Bahadur Saud', 'Everest Engineering College', 'mohan123'),
-('2021-1-12-0137', 'Sandip Chapain', 'National College of Information Technology', 'sandip123'),
+('2021-1-12-0130', 'Pritam Shrestha', 'Nepal Engineering College', 'pritam123'),
 ('2021-1-12-0135', 'Sandesh Dani', 'Cosmos Engineering College', 'sandesh123'),
-('2021-1-12-0130', 'Pritam Shrestha', 'Nepal Engineering College', 'pritam123');
+('2021-1-12-0137', 'Sandip Chapain', 'National College of Information Technology', 'sandip123');
 
 --
 -- Indexes for dumped tables
@@ -188,6 +193,18 @@ ALTER TABLE `studentreg`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `uniorg`
+--
+ALTER TABLE `uniorg`
+  ADD PRIMARY KEY (`regid`);
+
+--
+-- Indexes for table `unistud`
+--
+ALTER TABLE `unistud`
+  ADD PRIMARY KEY (`regid`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -207,7 +224,7 @@ ALTER TABLE `event_details`
 -- AUTO_INCREMENT for table `studentreg`
 --
 ALTER TABLE `studentreg`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

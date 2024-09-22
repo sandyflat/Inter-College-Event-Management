@@ -26,7 +26,7 @@ $result_events = $conn->query($query_events);
 
 // Fetch enrolled events for the student
 $query_enrolled_events = "
-    SELECT ed.eventId, ed.eventName, ed.eventCategory, ed.eventDetails, ed.date, ed.time, ed.location, ed.suborganizer, ed.noOfparticipants, DATEDIFF(ed.date, '$current_date') AS remaining_days 
+    SELECT ed.eventId, ed.eventName, ed.eventCategory, ed.eventDetails, ed.date, ed.time, ed.location, ed.organizer, ed.suborganizer, ed.noOfparticipants, DATEDIFF(ed.date, '$current_date') AS remaining_days 
     FROM enrolled_events ee 
     JOIN event_details ed ON ee.eventId = ed.eventId 
     WHERE ee.studentName = '$student_name' AND ed.date >= '$current_date'
@@ -154,6 +154,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancel_event_id'])) {
                 <th>Date</th>
                 <th>Time</th>
                 <th>Location</th>
+                <th>Organizer</th>
                 <th>Sub Organizer</th>
                 <th>No of Participants</th>
                 <th>Remaining Days</th>
@@ -173,6 +174,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancel_event_id'])) {
                     echo "<td>" . htmlspecialchars($event['date']) . "</td>";
                     echo "<td>" . htmlspecialchars($event['time']) . "</td>";
                     echo "<td>" . htmlspecialchars($event['location']) . "</td>";
+                    echo "<td>" . htmlspecialchars($event['organizer']) . "</td>";
                     echo "<td>" . htmlspecialchars($event['suborganizer']) . "</td>";
                     echo "<td>" . htmlspecialchars($event['noOfparticipants']) . "</td>";
 
